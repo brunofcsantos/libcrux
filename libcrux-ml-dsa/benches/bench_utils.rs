@@ -33,6 +33,19 @@ pub(crate) fn print_time(label: &str, d: std::time::Duration) {
     println!("{label}:{space}{time}");
 }
 
+#[allow(unused)]
+pub(crate) fn print_cycles(label: &str, cycles: u64) {
+    let time = format!("{} clocks per iteration", (cycles as u128) / (ITERATIONS as u128));
+
+    let space = if label.len() < 6 {
+        "\t\t".to_string()
+    } else {
+        "\t".to_string()
+    };
+
+    println!("{label}:{space} {time}");
+}
+
 pub(crate) const ITERATIONS: usize = 10_000;
 #[allow(unused)]
 pub(crate) const WARMUP_ITERATIONS: usize = 1_000;
@@ -46,7 +59,9 @@ pub(crate) const SECOND_PER_ITERATION_THRESHOLD: u128 = 1_000_000 * ITERATIONS a
 #[macro_export]
 macro_rules! bench {
     ($label:literal, $variant:literal, $input:expr, $setup:expr, $routine:expr) => {{
-        let mut time = std::time::Duration::ZERO;
+        use core::arch::x86_64::_rdtsc;
+
+        let mut cycles: u64 = 0;
 
         // Warmup
         for _ in 0..bench_utils::WARMUP_ITERATIONS {
@@ -58,16 +73,16 @@ macro_rules! bench {
         for _ in 0..bench_utils::ITERATIONS {
             let input = $setup($input);
 
-            let start = std::time::Instant::now();
+            let start = unsafe { _rdtsc() };
             let _ = core::hint::black_box($routine(input));
-            let end = std::time::Instant::now();
+            let end = unsafe { _rdtsc() };
 
-            time += end.duration_since(start);
+            cycles += end - start;
         }
-        bench_utils::print_time(concat!($label, " ", $variant), time);
+
+        bench_utils::print_cycles(concat!($label, " ", $variant), cycles);
     }};
 }
-
 #[macro_export]
 macro_rules! bench_group_libcrux {
     ($variant:literal, $mod:path, $keypair_t:ident, $signature_t:ident) => {{

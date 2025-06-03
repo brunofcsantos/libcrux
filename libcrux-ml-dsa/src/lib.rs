@@ -17,7 +17,7 @@ mod pre_hash;
 mod sample;
 mod samplex4;
 mod simd;
-mod types;
+pub mod types;
 
 // Public interface
 
