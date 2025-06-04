@@ -8,7 +8,7 @@ use libcrux_p256::{
 
 use crate::DigestAlgorithm;
 
-use ::rand::TryRngCore;
+use ::rand::RngCore;
 
 use super::Error;
 

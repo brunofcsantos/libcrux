@@ -7,8 +7,8 @@ use rand::RngCore;
 #[inline(never)]
 fn main() {
     let mut randomness = [0u8; 32];
-    OsRng.fill_bytes(&mut randomness);
+    let mut os_rng = OsRng;
+    os_rng.try_fill_bytes(&mut randomness);
 
     ml_dsa_65::generate_key_pair(randomness);
-
 }

@@ -1,5 +1,5 @@
 use criterion::{criterion_group, criterion_main, Criterion};
-use rand::{rngs::OsRng, TryRngCore};
+use rand::{rngs::OsRng, RngCore};
 use libcrux_ml_dsa::ml_dsa_44;
 use std::time::Duration;
 
@@ -8,7 +8,6 @@ use nix::unistd::Pid;
 
 mod cycles;
 use cycles::CpuCycles;
-
 pub fn comparisons_key_generation(c: &mut Criterion<CpuCycles>) {
     let mut rng = OsRng;
     let mut group = c.benchmark_group("ML-DSA-44 Key Generation");

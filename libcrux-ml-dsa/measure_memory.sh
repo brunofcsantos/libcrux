@@ -21,8 +21,8 @@ mkdir -p "$FOLDER"
 valgrind --tool=massif --stacks=yes --massif-out-file="$FOLDER/ml-dsa-44-sign-memory.txt" "$SCRIPT_DIR/../target/release/ml-dsa-44-sign-memory" > "$FOLDER/ml-dsa-44-sign-memory.txt"
 echo "Wrote to $FOLDER/ml-dsa-44-sign-memory.txt"
 
-Preparing a signature and a pub key for testing the verification without generating them
-$SCRIPT_DIR/../target/release/ml-dsa-44-sign-memory
+# Preparing a signature and a pub key for testing the verification without generating them
+$SCRIPT_DIR/../target/release/ml-dsa-44-prepare-verify
 
 # Verifying key
 FOLDER="$SCRIPT_DIR/../target/criterion/ML-DSA-44 Verification/memory"
@@ -43,8 +43,8 @@ mkdir -p "$FOLDER"
 valgrind --tool=massif --stacks=yes --massif-out-file="$FOLDER/ml-dsa-65-sign-memory.txt" "$SCRIPT_DIR/../target/release/ml-dsa-65-sign-memory" > "$FOLDER/ml-dsa-65-sign-memory.txt"
 echo "Wrote to $FOLDER/ml-dsa-65-sign-memory.txt"
 
-Preparing a signature and a pub key for testing the verification without generating them
-$SCRIPT_DIR/../target/release/ml-dsa-65-sign-memory
+# Preparing a signature and a pub key for testing the verification without generating them
+$SCRIPT_DIR/../target/release/ml-dsa-65-prepare-verify
 
 # Verifying key
 FOLDER="$SCRIPT_DIR/../target/criterion/ML-DSA-87 Verification/memory"
@@ -65,8 +65,8 @@ mkdir -p "$FOLDER"
 valgrind --tool=massif --stacks=yes --massif-out-file="$FOLDER/ml-dsa-87-sign-memory.txt" "$SCRIPT_DIR/../target/release/ml-dsa-87-sign-memory" > "$FOLDER/ml-dsa-87-sign-memory.txt"
 echo "Wrote to $FOLDER/ml-dsa-87-sign-memory.txt"
 
-Preparing a signature and a pub key for testing the verification without generating them
-$SCRIPT_DIR/../target/release/ml-dsa-87-sign-memory
+# Preparing a signature and a pub key for testing the verification without generating them
+$SCRIPT_DIR/../target/release/ml-dsa-87-prepare-verify
 
 # Verifying key
 FOLDER="$SCRIPT_DIR/../target/criterion/ML-DSA-87 Verification/memory"

@@ -22,9 +22,10 @@ libcrux-intrinsics = { version = "0.0.2", path = "../libcrux-intrinsics" }
 libcrux-platform = { version = "0.0.2", path = "../sys/platform" }
 libcrux-macros = { version = "0.0.2", path = "../macros" }
 hax-lib.workspace = true
+nix = { version = "0.30.1", features = ["sched", "process"] }
 
 [dev-dependencies]
-rand = { version = "0.9" }
+rand = { version = "0.8" }
 hex = { version = "0.4.3", features = ["serde"] }
 serde_json = { version = "1.0" }
 serde = { version = "1.0", features = ["derive"] }
@@ -68,61 +69,7 @@ harness = false
 name = "ml-dsa-44"
 harness = false
 
-[[bin]]
-name = "ml-dsa-44-keygen-memory"
-path = "src/ml-dsa-44-keygen-memory.rs"
 
-[[bin]]
-name = "ml-dsa-44-prepare-verify"
-path = "src/ml-dsa-44-prepare-verify.rs"
-
-[[bin]]
-name = "ml-dsa-44-sign-memory"
-path = "src/ml-dsa-44-sign-memory.rs"
-
-[[bin]]
-name = "ml-dsa-44-verify-memory"
-path = "src/ml-dsa-44-verify-memory.rs"
-
-[[bin]]
-name = "ml-dsa-65-keygen-memory"
-path = "src/ml-dsa-65-keygen-memory.rs"
-
-[[bin]]
-name = "ml-dsa-65-prepare-verify"
-path = "src/ml-dsa-65-prepare-verify.rs"
-
-[[bin]]
-name = "ml-dsa-65-sign-memory"
-path = "src/ml-dsa-65-sign-memory.rs"
-
-[[bin]]
-name = "ml-dsa-65-verify-memory"
-path = "src/ml-dsa-65-verify-memory.rs"
-
-[[bin]]
-name = "ml-dsa-87-keygen-memory"
-path = "src/ml-dsa-87-keygen-memory.rs"
-
-[[bin]]
-name = "ml-dsa-87-prepare-verify"
-path = "src/ml-dsa-87-prepare-verify.rs"
-
-[[bin]]
-name = "ml-dsa-87-sign-memory"
-path = "src/ml-dsa-87-sign-memory.rs"
-
-[[bin]]
-name = "ml-dsa-87-verify-memory"
-path = "src/ml-dsa-87-verify-memory.rs"
-
-[[bench]]
-name = "ml-dsa-65"
-harness = false
-
-[[bench]]
-name = "ml-dsa-87"
-harness = false
 
 
 [lints.rust]
