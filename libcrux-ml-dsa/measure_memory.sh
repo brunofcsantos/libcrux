@@ -22,13 +22,15 @@ valgrind --tool=massif --stacks=yes --massif-out-file="$FOLDER/ml-dsa-44-sign-me
 echo "Wrote to $FOLDER/ml-dsa-44-sign-memory.txt"
 
 # Preparing a signature and a pub key for testing the verification without generating them
-$SCRIPT_DIR/../target/release/ml-dsa-44-prepare-verify
+$SCRIPT_DIR="/../target/release/ml-dsa-44-prepare-verify"
 
 # Verifying key
 FOLDER="$SCRIPT_DIR/../target/criterion/ML-DSA-44 Verification/memory"
 mkdir -p "$FOLDER"
 valgrind --tool=massif --stacks=yes --massif-out-file="$FOLDER/ml-dsa-44-verify-memory.txt" "$SCRIPT_DIR/../target/release/ml-dsa-44-verify-memory" > "$FOLDER/ml-dsa-44-verify-memory.txt"
 echo "Wrote to $FOLDER/ml-dsa-44-verify-memory.txt"
+
+
 
 
 # Key generation
@@ -44,13 +46,15 @@ valgrind --tool=massif --stacks=yes --massif-out-file="$FOLDER/ml-dsa-65-sign-me
 echo "Wrote to $FOLDER/ml-dsa-65-sign-memory.txt"
 
 # Preparing a signature and a pub key for testing the verification without generating them
-$SCRIPT_DIR/../target/release/ml-dsa-65-prepare-verify
+$SCRIPT_DIR="/../target/release/ml-dsa-65-prepare-verify"
 
 # Verifying key
-FOLDER="$SCRIPT_DIR/../target/criterion/ML-DSA-87 Verification/memory"
+FOLDER="$SCRIPT_DIR/../target/criterion/ML-DSA-65 Verification/memory"
 mkdir -p "$FOLDER"
-valgrind --tool=massif --stacks=yes --massif-out-file="$FOLDER/ml-dsa-87-verify-memory.txt" "$SCRIPT_DIR/../target/release/ml-dsa-87-verify-memory" > "$FOLDER/ml-dsa-87-verify-memory.txt"
-echo "Wrote to $FOLDER/ml-dsa-87-verify-memory.txt"
+valgrind --tool=massif --stacks=yes --massif-out-file="$FOLDER/ml-dsa-65-verify-memory.txt" "$SCRIPT_DIR/../target/release/ml-dsa-65-verify-memory" > "$FOLDER/ml-dsa-65-verify-memory.txt"
+echo "Wrote to $FOLDER/ml-dsa-65-verify-memory.txt"
+
+
 
 
 # Key generation
@@ -66,7 +70,7 @@ valgrind --tool=massif --stacks=yes --massif-out-file="$FOLDER/ml-dsa-87-sign-me
 echo "Wrote to $FOLDER/ml-dsa-87-sign-memory.txt"
 
 # Preparing a signature and a pub key for testing the verification without generating them
-$SCRIPT_DIR/../target/release/ml-dsa-87-prepare-verify
+$SCRIPT_DIR="/../target/release/ml-dsa-87-prepare-verify"
 
 # Verifying key
 FOLDER="$SCRIPT_DIR/../target/criterion/ML-DSA-87 Verification/memory"
