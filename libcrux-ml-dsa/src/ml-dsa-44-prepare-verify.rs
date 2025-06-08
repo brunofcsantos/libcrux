@@ -7,8 +7,8 @@ use std::error::Error;
 fn main() -> Result<(), Box<dyn Error>> {
     let mut keygen_randomness = [0u8; 32];
     let mut signing_randomness = [0u8; 32];
-    Osrng.try_fill_bytes(&mut keygen_randomness);
-    Osrng.try_fill_bytes(&mut signing_randomness);
+    OsRng.try_fill_bytes(&mut keygen_randomness);
+    OsRng.try_fill_bytes(&mut signing_randomness);
 
     let context = b"";
 
