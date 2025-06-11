@@ -6,7 +6,7 @@ START_DIR=$PWD
 
 cd $SCRIPT_DIR
 echo $SCRIPT_DIR
-cargo build --release
+cargo +nightly build --release
 
 
 # Key generation
@@ -22,7 +22,7 @@ valgrind --tool=massif --stacks=yes --massif-out-file="$FOLDER/ml-dsa-44-sign-me
 echo "Wrote to $FOLDER/ml-dsa-44-sign-memory.txt"
 
 # Preparing a signature and a pub key for testing the verification without generating them
-$SCRIPT_DIR="/../target/release/ml-dsa-44-prepare-verify"
+../target/release/ml-dsa-44-prepare-verify
 
 # Verifying key
 FOLDER="$SCRIPT_DIR/../target/criterion/ML-DSA-44 Verification/memory"
@@ -46,7 +46,7 @@ valgrind --tool=massif --stacks=yes --massif-out-file="$FOLDER/ml-dsa-65-sign-me
 echo "Wrote to $FOLDER/ml-dsa-65-sign-memory.txt"
 
 # Preparing a signature and a pub key for testing the verification without generating them
-$SCRIPT_DIR="/../target/release/ml-dsa-65-prepare-verify"
+../target/release/ml-dsa-65-prepare-verify
 
 # Verifying key
 FOLDER="$SCRIPT_DIR/../target/criterion/ML-DSA-65 Verification/memory"
@@ -70,7 +70,7 @@ valgrind --tool=massif --stacks=yes --massif-out-file="$FOLDER/ml-dsa-87-sign-me
 echo "Wrote to $FOLDER/ml-dsa-87-sign-memory.txt"
 
 # Preparing a signature and a pub key for testing the verification without generating them
-$SCRIPT_DIR="/../target/release/ml-dsa-87-prepare-verify"
+../target/release/ml-dsa-87-prepare-verify
 
 # Verifying key
 FOLDER="$SCRIPT_DIR/../target/criterion/ML-DSA-87 Verification/memory"
